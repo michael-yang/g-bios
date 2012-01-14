@@ -2,8 +2,7 @@
 
 int global[10] = {1};
 
-void test(int a[], int len)
-{
+void test(int a[], int len) {
 	int i;
 	for (i = 0; i < len; i++) {
 		a[i] = i;
@@ -11,8 +10,7 @@ void test(int a[], int len)
 	printf("sizeof a in test = %d\n", sizeof(a));
 }
 
-int main(int argc, const char *argv[])
-{
+int main(int argc, const char *argv[]) {
 	int b[10];
 	int i;
 	for (i = 0; i < 10; i++) {
