@@ -1,0 +1,76 @@
+1.如何在class中定义一个常量
+
+class Test
+{
+public:
+	const int a;
+	Test():a(3)
+	{
+	}
+	void show()
+	{
+		cout << a <<endl;
+	}
+};
+
+2.Class的static成员有什么特性
+
+	static成员为所有对象共享，用类名直接调用，在类外初始化。
+
+3.如果一个基类有显式的构造函数，在其派生类实例化对象时，要注意些什么
+	
+	派生类先调用基类的构造函数，然后再调用派生类的。在派生类直接调用基类的构造函数的方法：A 是基类， B是派生类，
+	B(arg_b, arg_a)：A(arg_a)
+
+4.什么是abstract class，什么是virtual class
+
+	有virtual 成员方法的class 是abstract class . 在类名前面加virtual的类是virtual class.
+ 
+5.编写一段代码，实现C++的多态性
+
+#include <iostream>
+
+using namespace std;
+
+class A
+{
+public:
+	int a;
+public:
+	A(int arg_a)
+	{
+		a = arg_a;
+		cout << "a in B" << a <<endl;
+	}
+	virtual void show()
+	{
+		cout << a << endl;
+	}
+};
+
+class B :  public A
+{
+public:
+	int b;
+public:
+	B(int arg_b) : A(arg_b)
+	{
+		b = arg_b;
+		cout << "in B" << a <<endl;
+		cout << "b in B" << b <<endl;
+	}
+	virtual void show()
+	{
+		cout << a << endl;
+	}
+};
+
+int main()
+{
+	A *a;
+	B b(20);
+	a = &b;
+	a->show();
+
+	return 0;
+}
